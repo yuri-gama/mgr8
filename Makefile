@@ -7,7 +7,7 @@ build: main.go
 
 .PHONY: test
 test:
-	go test ./... -coverprofile=unit_coverage.out
+	go test ./... -coverprofile=coverage.txt
 
 .PHONY: coverage-report
 coverage-report:
