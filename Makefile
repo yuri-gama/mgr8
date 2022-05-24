@@ -7,11 +7,15 @@ build: main.go
 
 .PHONY: test
 test:
+	go test ./... -coverprofile=unit_coverage.out
+
+.PHONY: test-codecov
+test-codecov:
 	go test ./... -coverprofile=coverage.txt
 
 .PHONY: coverage-report
 coverage-report:
-	go tool cover -html=unit_coverage.out -o=test.html
+	go tool cover -html=unit_coverage.out
 
 UNIT_COVERAGE:= $(shell go tool cover -func=unit_coverage.out | tail -n 1 | cut -d ' ' -f 3 | rev | cut -c 1-5 | rev)
 
